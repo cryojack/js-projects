@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto Mono', monospace;
+}
+
+html {
+    background-color: #00BFFF;
+}
+
+header {
+    font-size: 50px;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    background-color: #2F4F4F;
+}
+
+h3 {
+    font-size: 35px;
+    font-weight: normal;
+    text-align: center;
+}
+
+button {
+    font-size: 35px;
+    text-align: center;
+    padding: 0px 10px;
+    margin: 5px 5px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+}
+
+button:hover {
+    font-size: 40px;
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+.score-board {
+    font-size: 30px;
+    text-align: center;
+    margin: 20px auto;
+    width: 500px;
+    color: white;   
+}
+
+.player-score { background-color: darkgreen; }
+
+.computer-score { background-color: darkred; }
+
+.result {
+    text-align: center;
+    font-size: 35px;
+    width: 45%;
+    margin: 20px auto;
+    color: black;
+    font-weight: bold;
+}
+
+.button-box {
+    text-align: center;
+    width: 45%;
+    margin: 20px auto;
+}
+
+#rock { background-color: darkolivegreen; }
+#paper { background-color: darkorange; }
+#scissors { background-color: darkslategrey; }

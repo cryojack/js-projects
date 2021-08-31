@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>JS Paint App</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <header>JS Paint</header>
+  <canvas id="canvas" width="1400px" height="700px"></canvas>
+  <div class="bottom-box">
+    <div class="tool-box">
+      <span class="display-position">X :</span>
+      <span class="display-position" id="posX">0</span>
+      <span class="display-position">Y :</span>
+      <span class="display-position" id="posY">0</span>
+    </div>
+    <div class="tool-box">
+      <label for="drawWidth">Pencil width</label>
+      <input type="number" min="1" max="25" step="1" value="10" id="drawWidth">
+    </div>
+    <div class="tool-box">
+      <label for="color">Pencil Color</label>
+      <select id="color">
+        <option value="black" selected>Black</option>
+        <option value="red">Red</option>
+        <option value="blue">Blue</option>
+        <option value="green">Green</option>
+        <option value="yellow">Yellow</option>
+      </select>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+header {
+    font-size: 60px;
+    text-align: center;
+    color: white;
+    background-color: crimson;
+}
+
+h3 {
+    font-size: 40px;
+    text-align: center;
+    margin: 20px auto;
+}
+
+.password-box {
+    text-align: center;
+    width: 70%;
+    margin: 75px auto;
+    color: white;
+    background-color: darkslateblue;
+}
+
+#password {
+    font-size: 50px;
+}
+
+.checkbox {
+    width: 20px;
+    height: 20px;
+}
+
+.tick-box-container {
+    text-align: center;
+}
+
+.tick-box {
+    font-size: 25px;
+    display: inline-block;
+    margin: auto 10px;
+}
+
+.bttn-container {
+    margin: 20px auto;
+    text-align: center;
+}
+
+#length {
+    font-size: 25px;
+    width: 100px;
+}
+
+#bttnRandom {
+    font-size: 30px;
+    padding: 5px 10px;
+    border: none;
+    background-color: darkmagenta;
+    color: white;
+}
+
+#bttnRandom:hover {
+    background-color: magenta;
+    transition: 0.4s ease;
+}

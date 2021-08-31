@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>JS Word Reader</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <script type="text/javascript" src="script.js" defer></script>
+    <!--script src="https://code.jquery.com/jquery-3.6.0.js"></script-->
+  </head>
+  <body class="jsr-body-main" id="mainBody">
+    <h1 class="jsr-heading-main">JS Word Reader Ver. 1</h1>
+
+    <div class="jsr-navigation" id="jsrNavigation">
+      <a class="jsr-navitem" href="#">About</a>
+    </div>
+
+    <div class="jsr-container-main" id="mainContainer">
+        <div class="jsr-input-box">
+            <label class="jsr-input-label" for="jsr-input-text">Start typing to start the count!</label>
+            <textarea name="jsr-input-text" id="jsrText" rows="10"></textarea>
+        </div>
+        <div class="jsr-input-box">
+          <label class="jsr-word-label" for="jsr-input-word">Search for this word</label>
+          <input type="text" class="jsr-input-word" id="jsrInputWord">
+      </div>
+        <button type="button" class="jsr-button-main" name="jsr-submit" id="jsrBttnReset">Reset!</button>
+    </div>
+    <div class="jsr-container-disp" id="dispContainer">
+      <div class="jsr-container-label">Letters : </div><div id="dispLetter"> 0 </div>
+      <div class="jsr-container-label">Words : </div><div id="dispWord"> 0 </div>
+      <div class="jsr-container-label" id="findWord">Find Word : </div><div id="dispFind"> 0 </div>
+      <div class="jsr-container-label">Longest Word : </div><div id="longWord"></div>
+    </div>
+    <footer class="jsr-footer-main">
+        <p>Created by Mridul N.</p>
+    </footer>
+  </body>
+</html>

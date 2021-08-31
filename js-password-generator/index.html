@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>JS Password Generator</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <header>Password Generator</header>
+  <h3>Generate some passwords of your choice!</h3>
+  <div class="password-box">
+    <span id="password">
+      Your Password here!
+    </span>
+  </div>
+  <div class="tick-box-container">
+    <div class="tick-box">
+      <label for="length">Length</label>
+      <input type="number" id="length" value="16">
+    </div>
+    <div class="tick-box">
+      <label for="includeNum">Include numbers</label>
+      <input type="checkbox" class="checkbox" id="includeNum" value="NUM">
+    </div>
+    <div class="tick-box">
+      <label for="includeSpec">Include special characters</label>
+      <input type="checkbox" class="checkbox" id="includeSpec" value="SPECIAL">
+    </div>
+    <div class="tick-box">
+      <label for="includeUpper">Include uppercase chars (default is only lowercase)</label>
+      <input type="checkbox" class="checkbox" id="includeUpper" value="UPPER">
+    </div>
+  </div>
+  <div class="bttn-container">
+    <button id="bttnRandom">Generate password!</button>
+  </div>
+</body>
+</html>
