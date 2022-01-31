@@ -1,5 +1,5 @@
-const start = document.getElementById("start");
-const stop  = document.getElementById("stop");
+const startB = document.getElementById("start");
+const stopB  = document.getElementById("stop");
 const main  = document.getElementById("mainContainer");
 const box1  = document.getElementById("box1");
 const box2  = document.getElementById("box2");
@@ -18,12 +18,12 @@ function changeColor () {
     //console.log(box1.innerHTML + " | " + box2.innerHTML + " | " + box3.innerHTML);
 }
 
-start.addEventListener('click', function (e) {
+startB.addEventListener('click', function (e) {
     e.preventDefault()
     intervID = setInterval(changeColor,500)
 })
 
-stop.addEventListener('click', function (e) {
+stopB.addEventListener('click', function (e) {
     e.preventDefault()
     clearInterval(intervID)
     main.style.backgroundColor = "white";

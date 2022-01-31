@@ -1,0 +1,127 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(43, 40, 40);
+}
+
+.container .image-box {
+    position: relative;
+    width: 800px;
+    height: 600px;
+    border: solid 2px black;
+}
+
+.image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.container .button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 800px;
+    height: 70px;
+    margin-top: 20px;
+}
+
+.button button {
+    font-size: 35px;
+    height: 60px;
+    width: 400px;
+    border: none;
+    color: white;
+    background-color: blue;
+    cursor: pointer;
+}
+
+.load-indicator {
+    position: absolute;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    background-color: black;
+    opacity: 0.7;
+}
+
+.load-indicator .line {
+    width: 5px;
+    height: 50px;
+    border-radius: 20px;
+    background-color: rgb(255, 255, 255);
+    margin: 2px;
+    animation-name: pulsate;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate;
+    animation-duration: 1s;
+    animation-delay: 0.1s;
+}
+
+.load-indicator .line:nth-child(2) {
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate;
+    animation-duration: 1s;
+    animation-delay: 0.3s;
+}
+
+.load-indicator .line:nth-child(3) {
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate;
+    animation-duration: 1s;
+    animation-delay: 0.5s;
+}
+
+.load-indicator .line:nth-child(4) {
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate;
+    animation-duration: 1s;
+    animation-delay: 0.7s;
+}
+
+.load-indicator .line:nth-child(5) {
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate;
+    animation-duration: 1s;
+    animation-delay: 0.9s;
+}
+
+@keyframes pulsate {
+    0% {
+        height: 10px;
+    }
+
+    50% {
+        height: 45px;
+    }
+
+    100% {
+        height: 10px;
+    }
+}
