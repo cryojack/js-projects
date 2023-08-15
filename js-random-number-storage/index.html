@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>Random Number Generator List</h1>
+    </header>
+    <div class="container">
+        <div class="description">
+            <p>
+                Generate random numbers and store them as removable cards!
+            </p>
+        </div>
+
+        <div class="listbox">
+            <!-- <div class="card">
+                <button class="removecard">X</button>
+                <p class="number">20323</p>
+                <p class="datetime">Generated on Friday, 4th August, 2023 21:06:31</p>
+            </div> -->
+        </div>
+        <div class="controlbox">
+            <div class="rangebox">
+                <h1>Select random number range</h1>
+                <label for="min">Min</label><input type="number" name="min" id="min" value="1" min="1" max="1000000000">
+                <label for="max">Max</label><input type="number" name="max" id="max" value="1000" min="1" max="1000000000">
+            </div>
+            <div class="buttonbox">
+                <button class="button" id="generate">Generate</button>
+                <button class="button" id="undo">Undo</button>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>

@@ -1,0 +1,446 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 0.25rem;
+}
+  
+  /* Track */
+::-webkit-scrollbar-track {
+    background: #c5c2c2; 
+}
+   
+  /* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgb(53, 51, 51); 
+}
+  
+  /* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+
+/*
+    Set universal font size and family
+    Use this so that rem values can be used
+*/
+html {
+    font-size: 10px;
+    font-family: monospace;
+}
+
+a { text-decoration: none; }
+
+/*
+    Page heading
+*/
+
+header.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+    color: white;
+    background-color: rgb(95, 46, 141);
+}
+
+.header h1 { font-size: 4.5rem; }
+
+/*
+    Main display
+*/
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+    height: 90vh;
+}
+
+.main .main-box {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 90%;
+    border: solid 1px black;
+}
+
+/*
+    Dropdown
+*/
+
+.main-box .dropdown {
+    flex: 1;
+    display: flex;
+    padding: 5px;
+}
+
+.dropdown .left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.input-box {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding: 5px 10px;
+    height: 50px;
+}
+
+.input-box label {
+    display: flex;
+    justify-content: center;
+    font-size: 1.8rem;
+    padding: 2px;
+    width: 100px;
+}
+
+.input-box select,
+.input-box input {
+    font-size: 1.8rem;
+    width: 300px;
+}
+
+.input-box input[type='button'] {
+    height: 30px;
+    margin-left: 100px;
+    font-weight: 600;
+    outline: none;
+    border: none;
+    color: white;
+    background-color: rgb(39, 39, 212);
+    cursor: pointer;
+}
+
+.dropdown .right { flex: 1; }
+
+/*
+    Information
+*/
+
+.main-box .information {
+    flex: 3;
+    padding: 2px;
+    overflow-x: hidden;
+    border-top: solid 1px black;
+}
+
+/** Card **/
+
+.information .card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* Card Top */
+
+.card .top {
+    flex: 1;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+/* Top Image */
+
+.top .image {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Image Name */
+
+.image .name {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Name h3/h4 */
+
+.name h3 { font-size: 2.4rem; }
+.name h4 { font-size: 2rem; }
+
+/* Image Img */
+
+.image .img {
+    flex: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img img {
+    object-fit: cover;
+}
+
+/* Image Info */
+
+.image .info {
+    flex: 1;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.image .info h5 { font-size: 1.7rem; }
+
+.heading h6 { font-size: 1.7rem; }
+
+/* Top Stats */
+
+.top .stats {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Stats table (universal) */
+
+table { margin: 2px 0px; }
+table p { font-size: 1.6rem; }
+
+/* Stats Heading */
+
+.stats .heading {
+    flex: 0.5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(226, 226, 189);
+}
+
+/* Stats Stat info */
+
+.stats .stat-info {
+    flex: 5;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Stat info tables */
+
+.stat-info .tbl-attr,
+.stat-info .tbl-stat {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tbl-attr tr th,
+.tbl-attr tr td {
+    text-align: center;
+    width: 100px;
+    height: 20px;
+    border: solid 1px black
+}
+
+.tbl-stat tr th,
+.tbl-stat tr td {
+    text-align: center;
+    height: 20px;
+    border: solid 1px black
+}
+
+.tbl-stat tr th { width: 120px; }
+.tbl-stat tr td { width: 180px; }
+
+.tbl-attr th,
+.tbl-stat th { background-color: beige; }
+
+/* Top Elemental */
+
+.top .elemental {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin: 0px 2px;
+}
+
+/* Elemental Heading */
+
+.elemental .heading {
+    flex: 0.5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(226, 226, 189);
+}
+
+/* Elemental Info */
+
+.elemental .elem-info {
+    flex: 2.5;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Elem info table */
+
+.elem-info .tbl-elem {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tbl-elem tr th,
+.tbl-elem tr td {
+    text-align: center;
+    height: 20px;
+    border: solid 1px black
+}
+
+.tbl-elem tr th { width: 75px; }
+.tbl-elem tr td { width: 100px; }
+
+.tbl-elem th { background-color: beige; }
+
+.less   { color: red; }
+.great  { color: green; }
+
+/* Elemental Modes */
+
+.elemental .modes {
+    flex: 2.5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.modes ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modes ul li {
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+/* Card Bottom */
+
+.card .bottom {
+    flex: 1;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+/* Universal styles for bottom sections */
+
+.bottom .skills,
+.bottom .maps,
+.bottom .summons {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin: 0px 1px;
+}
+
+.bottom .drops {
+    flex: 2;
+    margin: 0px 1px;
+}
+
+.skills .heading,
+.drops .heading,
+.maps .heading,
+.summons .heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(226, 226, 189);
+}
+
+.skills .skill-info,
+.drops .drop-info,
+.maps .map-info,
+.summons .summon-info {
+    flex: 5;
+    max-height: 273.16px;
+    overflow-y: auto;
+}
+
+.skill-info ul,
+.drop-info ul,
+.map-info ul,
+.summon-info ul {
+    display: flex;
+    flex-direction: column;
+    margin: 0px 1px;
+}
+
+.skill-info ul li,
+.drop-info ul li {
+    display: flex;
+    align-items: center;
+    margin: 1px 0px;
+    font-size: 1.55rem;
+}
+
+/* Bottom Drops */
+
+.drop-info ul li .drop-img {
+    flex: 0.5;
+    display: flex;
+    justify-content: center;
+}
+
+.drop-info ul li .drop-img img {
+    width: 24px;
+    height: 24px;
+}
+
+.drop-info ul li .drop-name { flex: 5; }
+
+.drop-info ul li .drop-rate {
+    flex: 1;
+    text-align: center;
+}
+
+/* Bottom Maps */
+
+.map-info ul li {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.5rem;
+    margin: 1px 1px;
+}
+
+.map-info ul li .map-name {
+    margin: 1px 0px;
+    font-weight: 600;
+}
+
+.map-info ul li .map-details { display: flex; }
+.map-details .m-img { flex: 1; }
+.map-details .m-txt { flex: 5; }
+
+/* Bottom Summons */
+
+.summon-info .sum-mob,
+.summon-info .spw-mob {
+    display: flex;
+    flex-direction: column;
+    margin: 2px 0px;
+}
+
+.summon-info h6 {
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+.summon-info ul li {
+    font-size: 1.55rem;
+    margin: 1px 5px;
+}
