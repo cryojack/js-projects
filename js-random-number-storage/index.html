@@ -6,38 +6,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
-    <title>Document</title>
+    <title>Random Number Generator</title>
 </head>
 <body>
-    <header>
-        <h1>Random Number Generator List</h1>
-    </header>
-    <div class="container">
-        <div class="description">
-            <p>
-                Generate random numbers and store them as removable cards!
-            </p>
-        </div>
+    <div class="displaybox">
 
-        <div class="listbox">
-            <!-- <div class="card">
-                <button class="removecard">X</button>
-                <p class="number">20323</p>
-                <p class="datetime">Generated on Friday, 4th August, 2023 21:06:31</p>
-            </div> -->
-        </div>
-        <div class="controlbox">
-            <div class="rangebox">
-                <h1>Select random number range</h1>
-                <label for="min">Min</label><input type="number" name="min" id="min" value="1" min="1" max="1000000000">
-                <label for="max">Max</label><input type="number" name="max" id="max" value="1000" min="1" max="1000000000">
+        <div class="card">
+            <div class="top">
+                <button class="removecard" onclick="removeCard(document.getElementById('card-2023').id)">X</button>
+                <p class="number">202333</p>
             </div>
-            <div class="buttonbox">
-                <button class="button" id="generate">Generate</button>
-                <button class="button" id="undo">Undo</button>
+            <div class="bottom">
+                <p class="datetime">Generated on Fri, 4th of Aug 2023, at 21:06:31</p>
+                <button class="copycard" onclick="copyCard(document.getElementById('card-2023').id)">Copy card</button>
             </div>
         </div>
         
+
+    </div>
+
+    <div class="showbox">
+        <h1 class="heading">Random Number Generator</h1>
+
+        <p class="description">Generate random numbers in a given range. You can also delete and restore the cards.</p>
+
+        <div class="controlbox">
+            <div class="detailsbox">
+                <label for="cardsShown">Cards shown</label>
+                <input type="number" name="cardsShown" id="cardsShown" value="0" disabled>
+                <label for="cardsRemoved">Cards removed</label>
+                <input type="number" name="cardsRemoved" id="cardsRemoved" value="0" disabled>
+            </div>
+
+            <div class="inputbox">
+                <label for="min">Minimum value</label><input type="number" name="min" id="min" value="1" min="1" max="1000000000">
+                <label for="max">Maximum value</label><input type="number" name="max" id="max" value="1000" min="1" max="1000000000">
+            </div>
+
+            <div class="buttonbox">
+                <button class="button" id="generate">Generate</button>
+                <button class="button" id="undo">Undo</button>
+                <button class="button" id="clearall">Clear all</button>
+            </div>
+        </div>
+
     </div>
 </body>
 </html>

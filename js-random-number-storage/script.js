@@ -1,20 +1,27 @@
 // Get the elements into which we will add cards and the button to generate and undo
-const listbox = document.querySelector('div.listbox')
+const displaybox = document.querySelector('div.displaybox')
 const generate = document.getElementById('generate')
 const undo = document.getElementById('undo')
+const clearall = document.getElementById('clearall')
 
-// Disable the Undo button for now
-undo.setAttribute('disabled',true)
-
-// Get the min max value ranges for random numbers
+// Get the min-max value range inputs
 const min = document.getElementById('min')
 const max = document.getElementById('max')
+
+// Get the cards shown and removed inputs
+const cardsShown = document.getElementById('cardsShown')
+const cardsRemoved = document.getElementById('cardsRemoved')
+
+// Disable the Undo and Clear all button for now
+undo.setAttribute('disabled',true)
+clearall.setAttribute('disabled',true)
 
 let listOfCards = []            // Store all random numbers in order they are created
 let listOfRemovedCards = []     // Store removed cards as objects with index position and number
 
 let cardIndex = 0               // Variable to store current index, to be used for card index
 
+// Function to get datetime and format it accordingly
 function formatDateTime(datetime) {
     // Constants to define days and months
     const DAYS = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat']
@@ -49,6 +56,7 @@ function formatDateTime(datetime) {
     return fullDate
 }
 
+// Function to get a random number between two ranges
 function getRandomNumber(min,max) {
     if(min >= max) return undefined
 
@@ -71,6 +79,7 @@ function getRandomNumber(min,max) {
     }
 }
 
+// Function to create the card and update listOfCards array
 function createCard() {
     const datetime = formatDateTime(new Date())             // Get date
     const id = getRandomNumber(min.value,max.value)         // Get random number
@@ -80,11 +89,13 @@ function createCard() {
     } else {
         // Push the newly created card into array and update view, increment current card index
         listOfCards.push({'index':cardIndex,'id':id,'datetime':datetime})
+        updateCardNumber()
         updateCardView()
         cardIndex++
     }
 }
 
+// Function to remove the card using id and update listOfCards and listOfRemovedCards arrays
 function removeCard(cardId) {
     let id = Number(cardId.split('-')[1])
     let index = 0
@@ -102,9 +113,11 @@ function removeCard(cardId) {
     // listOfCards = listOfCards.filter(obj => { return obj.id !== id })
     listOfCards[index] = ''
     listOfRemovedCards.push({'index':index,'id':id,'datetime':datetime})
+    updateCardNumber()
     updateCardView()
 }
 
+// Function to restore last removed card and update listOfCards and listOfRemovedCards arrays
 function restoreCard() {
     const cardToRestore = listOfRemovedCards[listOfRemovedCards.length - 1]
     if(cardToRestore === undefined || listOfRemovedCards.length < 1) return
@@ -115,37 +128,65 @@ function restoreCard() {
     
     listOfRemovedCards.pop()
     listOfCards[restoredCardIndex] = {'index':restoredCardIndex,'id':restoredCardId,'datetime':restoredCardDateTime}
-    // if(listOfCards.length < 1) {
-    //     listOfCards.push({'index':restoredCardIndex,'id':restoredCardId,'datetime':restoredCardDateTime})
-    // } else {
-    //     for (let i = 0; i < listOfCards.length; i++) {
-    //         const obj = listOfCards[i]
-    //         if(restoredCardIndex < obj.index) {
-    //             listOfCards.splice(i,0,{'index':restoredCardIndex,'id':restoredCardId,'datetime':restoredCardDateTime})
-    //             break
-    //         }
-    //     }
-    // }
+    updateCardNumber()
     updateCardView()
 }
 
+// Function to remove all cards and reset listOfCards and listOfRemovedCards arrays
+function clearAllCards() {
+    listOfCards = []
+    listOfRemovedCards = []
+    cardIndex = 0
+    updateCardNumber()
+    updateCardView()
+}
+
+// Function to copy the card number to the clip
+function copyCard(cardId) {
+    const copyId = Number(cardId.split('-')[1])
+    navigator.clipboard.writeText(copyId)
+}
+
+// Function to show all the cards in the listOfCards array on screen
 function updateCardView() {
     let cards = ''
     listOfCards.forEach(obj => {
         if(obj !== '') {
             cards +=
             `<div class="card" id="card-${obj.id}">
-                <button class="removecard" onclick="removeCard(document.getElementById('card-${obj.id}').id)">X</button>
-                <p class="number">${obj.id}</p>
-                <p class="datetime">Generated on ${obj.datetime}</p>
+                <div class="top">
+                    <button class="removecard" onclick="removeCard(document.getElementById('card-${obj.id}').id)">X</button>
+                    <p class="number">${obj.id}</p>
+                </div>
+                <div class="bottom">
+                    <p class="datetime">Generated on ${obj.datetime}</p>
+                    <button class="copycard" onclick="copyCard(document.getElementById('card-${obj.id}').id)">Copy card</button>
+                </div>
             </div>`
         }
     })
-    listbox.innerHTML = ''
-    listbox.innerHTML += cards
+    displaybox.innerHTML = ''
+    displaybox.innerHTML += cards
     enableUndoButton()
+    enableClearAllButton()
 }
 
+// Function to show the number of shown/removed cards on the screen
+function updateCardNumber() {
+    cardsShown.value = listOfCards.filter(elem => elem != '').length
+    cardsRemoved.value = listOfRemovedCards.length
+}
+
+// Function to enable the Clear all button
+function enableClearAllButton() {
+    if(listOfCards.length > 0 || listOfRemovedCards.length > 0) {
+        clearall.removeAttribute('disabled')
+    } else {
+        clearall.setAttribute('disabled',true)
+    }
+}
+
+// Function to enable the Undo button
 function enableUndoButton() {
     if(listOfRemovedCards.length > 0) {
         undo.removeAttribute('disabled')
@@ -154,6 +195,7 @@ function enableUndoButton() {
     }
 }
 
-
+// Event listeners for buttons
 generate.addEventListener('click', createCard)
 undo.addEventListener('click',restoreCard)
+clearall.addEventListener('click',clearAllCards)
