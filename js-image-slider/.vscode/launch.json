@@ -1,0 +1,24 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Debugging in chrome",
+            "url": "http://127.0.0.1:5500",
+            "webRoot": "${workspaceFolder}"
+        }
+    ]
+}
+// {
+//     "version": "0.2.0",
+//     "configurations": [
+//         {
+//             "name": "Node: Current File",
+//             "type": "node",
+//             "request": "launch",
+//             "program": "${file}",
+//             "console": "integratedTerminal"
+//         }
+//     ]
+// }

@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+}
+
+.game-area {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(62, 62, 62);
+}
+
+.game-display {
+    position: absolute;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    font-size: 40px;
+    font-family: sans-serif;
+    color: #fff;
+}

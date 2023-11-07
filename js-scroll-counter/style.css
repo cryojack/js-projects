@@ -1,0 +1,21 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body { min-height: 100vh; }
+
+.scrollline {
+    position: fixed;
+    height: 5px;
+    background: linear-gradient(to right, #31eb18, #a7e90f);
+}
+
+.top,
+.middle,
+.bottom { height: 100vh; }
+
+.top    { background-color: blue; }
+.middle { background-color: brown; }
+.bottom { background-color: blueviolet; }

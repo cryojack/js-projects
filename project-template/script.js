@@ -1,1 +1,0 @@
-var mainBttn = document.getElementById('mainBttn').onclick = alert("hello");

@@ -5,6 +5,11 @@
     list-style-type: none;
 }
 
+:root {
+    --color-heading : rgb(95, 46, 141);
+    --color-tbl-heading: rgb(226, 226, 189);
+}
+
 /* width */
 ::-webkit-scrollbar {
     width: 0.25rem;
@@ -36,9 +41,7 @@ html {
 
 a { text-decoration: none; }
 
-/*
-    Page heading
-*/
+/* Page heading */
 
 header.header {
     display: flex;
@@ -46,14 +49,12 @@ header.header {
     align-items: center;
     height: 70px;
     color: white;
-    background-color: rgb(95, 46, 141);
+    background-color: var(--color-heading);
 }
 
 .header h1 { font-size: 4.5rem; }
 
-/*
-    Main display
-*/
+/* Main display */
 
 .main {
     display: flex;
@@ -71,9 +72,7 @@ header.header {
     border: solid 1px black;
 }
 
-/*
-    Dropdown
-*/
+/* Dropdown */
 
 .main-box .dropdown {
     flex: 1;
@@ -123,9 +122,7 @@ header.header {
 
 .dropdown .right { flex: 1; }
 
-/*
-    Information
-*/
+/* Information */
 
 .main-box .information {
     flex: 3;
@@ -134,12 +131,22 @@ header.header {
     border-top: solid 1px black;
 }
 
-/** Card **/
+/* Card */
 
-.information .card {
+.information .card,
+.information .card.error {
     display: flex;
     flex-direction: column;
     height: 100%;
+}
+
+/* Card Error */
+.information .card.error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 5rem;
+    color: #555;
 }
 
 /* Card Top */
@@ -183,7 +190,8 @@ header.header {
 }
 
 .img img {
-    object-fit: cover;
+    max-width: 250px;
+    max-height: 200px;
 }
 
 /* Image Info */
@@ -219,7 +227,7 @@ table p { font-size: 1.6rem; }
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(226, 226, 189);
+    background-color: var(--color-tbl-heading);
 }
 
 /* Stats Stat info */
@@ -275,7 +283,7 @@ table p { font-size: 1.6rem; }
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(226, 226, 189);
+    background-color: var(--color-tbl-heading);
 }
 
 /* Elemental Info */
@@ -340,6 +348,7 @@ table p { font-size: 1.6rem; }
 
 .bottom .skills,
 .bottom .maps,
+.bottom .drops,
 .bottom .summons {
     flex: 1;
     display: flex;
@@ -347,10 +356,10 @@ table p { font-size: 1.6rem; }
     margin: 0px 1px;
 }
 
-.bottom .drops {
+/* .bottom .drops {
     flex: 2;
     margin: 0px 1px;
-}
+} */
 
 .skills .heading,
 .drops .heading,
@@ -359,7 +368,7 @@ table p { font-size: 1.6rem; }
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(226, 226, 189);
+    background-color: var(--color-tbl-heading);
 }
 
 .skills .skill-info,
@@ -402,6 +411,18 @@ table p { font-size: 1.6rem; }
 }
 
 .drop-info ul li .drop-name { flex: 5; }
+.drop-name .drop-info-bttn {
+    width: 15px;
+    height: 15px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-align: center;
+    border: none;
+    border-radius: 50%;
+    color: white;
+    background-color: rgb(39, 39, 212);
+    cursor: pointer;
+}
 
 .drop-info ul li .drop-rate {
     flex: 1;
@@ -413,15 +434,11 @@ table p { font-size: 1.6rem; }
 .map-info ul li {
     display: flex;
     flex-direction: column;
-    font-size: 1.5rem;
+    font-size: 1.55rem;
     margin: 1px 1px;
 }
 
-.map-info ul li .map-name {
-    margin: 1px 0px;
-    font-weight: 600;
-}
-
+.map-info ul li .map-name { margin: 1px 0px; }
 .map-info ul li .map-details { display: flex; }
 .map-details .m-img { flex: 1; }
 .map-details .m-txt { flex: 5; }
@@ -443,4 +460,150 @@ table p { font-size: 1.6rem; }
 .summon-info ul li {
     font-size: 1.55rem;
     margin: 1px 5px;
+}
+
+/* Item info modal */
+
+.item-info-modal-back {
+    /* display: none; */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(39, 39, 39, 0.2);
+    z-index: 2;
+}
+
+.item-info-modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    height: 700px;
+    width: 800px;
+    background-color: white;
+    z-index: 4;
+}
+
+/* Modal heading */
+
+.item-info-modal .item-info-modal-heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5rem;
+    background-color: var(--color-heading);
+}
+
+.item-info-modal-heading h2 {
+    font-size: 2.2rem;
+    color: white;
+}
+
+.item-info-modal-heading button {
+    position: absolute;
+    right: 30px;
+    width: 3.5rem;
+    height: 3.5rem;
+    font-size: 3rem;
+    outline: none;
+    border: none;
+    border-radius: 50%;
+    color: white;
+    background-color: transparent;
+}
+
+.item-info-modal-heading button:hover {
+    color: var(--color-heading);
+    background-color: white;
+}
+
+.item-info-modal-heading button:active {
+    color: var(--color-heading);
+    background-color: rgb(227 222 232);
+}
+
+/* Modal name */
+
+.item-info-modal .item-info-modal-name {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.item-info-modal-name h2 {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+/* Modal image */
+
+.item-info-modal .item-info-modal-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
+.item-info-modal-img img {
+    width: 64px;
+    padding: 2px;
+    border-radius: 5px;
+    border: solid 2px black;
+    background-color: #f1eeee;
+}
+
+/* Modal description */
+
+.item-info-modal .item-info-modal-desc {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.item-info-modal-desc h3 {
+    font-size: 1.7rem;
+    font-weight: 500;
+}
+
+/* Modal tables */
+
+.item-info-modal .item-info-modal-skills,
+.item-info-modal .item-info-modal-mods,
+.item-info-modal .item-info-modal-drops {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 95%;
+    margin: 10px auto;
+    border: solid 1px black;
+}
+
+.item-info-modal-skills h3,
+.item-info-modal-skills ul,
+.item-info-modal-mods h3,
+.item-info-modal-mods ul,
+.item-info-modal-drops h3,
+.item-info-modal-drops ul {
+    width: 100%;
+    text-align: center;
+}
+
+.item-info-modal-skills h3,
+.item-info-modal-mods h3,
+.item-info-modal-drops h3 {
+    font-size: 1.6rem;
+    background-color: var(--color-tbl-heading);
+}
+
+.item-info-modal-skills ul li,
+.item-info-modal-mods ul li,
+.item-info-modal-drops ul li {
+    font-size: 1.5rem;
+    margin: 4px 0px;
 }
