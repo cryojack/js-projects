@@ -257,9 +257,9 @@ window.addEventListener('keydown',(e) => {
             player.jump()
             break
 
-        // case 'w':
-        //     player.move(0,-20)
-        //     break
+        case 'w':
+            player.move(0,-20)
+            break
 
         // case 'a':
         //     player.move(-20,0)
